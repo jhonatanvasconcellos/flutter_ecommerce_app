@@ -9,12 +9,11 @@ class ProducIcon extends StatelessWidget {
   // final String text;
   // final bool isSelected;
   final  Category model;
-  ProducIcon({Key key,this.model})
+  ProducIcon({Key? key ,required this.model})
       : super(key: key);
-
+  @override
   Widget build(BuildContext context) {
-    return model.id == null ? Container(width: 5,)
-    : Container(
+    return Container(
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
       padding: AppTheme.hPadding,
       alignment: Alignment.center,
@@ -36,9 +35,8 @@ class ProducIcon extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          model.image != null ? Image.asset(model.image) : SizedBox(),
-          model.name == null ? Container()
-          : Container(
+          Image.asset(model.image),
+          Container(
             child: TitleText(
               text: model.name,
               fontWeight: FontWeight.w700,

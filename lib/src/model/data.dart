@@ -59,7 +59,6 @@ class AppData {
     //     category: "Trending Now"),
   ];
   static List<Category> categoryList = [
-    Category(),
     Category(id:1,name: "Sneakers",image: 'assets/shoe_thumb_2.png',isSelected: true),
     Category(id:2,name: "Jacket", image: 'assets/jacket.png'),
     Category(id:3,name: "Watch", image: 'assets/watch.png'),

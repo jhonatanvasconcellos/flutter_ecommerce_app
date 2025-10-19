@@ -6,7 +6,7 @@ import 'package:flutter_ecommerce_app/src/themes/theme.dart';
 import 'package:flutter_ecommerce_app/src/wigets/title_text.dart';
 
 class ShopingCartPage extends StatelessWidget {
-  const ShopingCartPage({Key key}) : super(key: key);
+  const ShopingCartPage({required Key key}) : super(key: key);
 
   Widget _cartItems() {
     return Column(children: AppData.cartList.map((x) => _item(x)).toList());
@@ -104,20 +104,24 @@ class ShopingCartPage extends StatelessWidget {
   }
 
   Widget _submitButton(BuildContext context) {
-    return FlatButton(
-        onPressed: () {},
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        backgroundColor: LightColor.orange,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        color: LightColor.orange,
-        child: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.symmetric(vertical: 12),
-          width: AppTheme.fullWidth(context) * .7,
-          child: TitleText(
-            text: 'Next',
-            color: LightColor.background,
-            fontWeight: FontWeight.w500,
-          ),
-        ));
+        padding: EdgeInsets.zero,
+      ),
+      child: Container(
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(vertical: 12),
+        width: AppTheme.fullWidth(context) * .7,
+        child: TitleText(
+          text: 'Next',
+          color: LightColor.background,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
   }
 
   double getPrice() {

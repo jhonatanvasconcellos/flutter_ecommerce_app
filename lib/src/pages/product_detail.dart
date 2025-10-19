@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_app/src/model/category.dart';
 import 'package:flutter_ecommerce_app/src/model/data.dart';
 import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
 import 'package:flutter_ecommerce_app/src/themes/theme.dart';
-import 'package:flutter_ecommerce_app/src/wigets/prduct_icon.dart';
 import 'package:flutter_ecommerce_app/src/wigets/title_text.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  ProductDetailPage({Key key}) : super(key: key);
+  ProductDetailPage({ Key? key}) : super(key: key);
 
   @override
   _ProductDetailPageState createState() => _ProductDetailPageState();
@@ -15,8 +13,8 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState extends State<ProductDetailPage>
     with TickerProviderStateMixin {
-  AnimationController controller;
-  Animation<double> animation;
+  late AnimationController controller;
+  late Animation<double> animation;
   @override
   void initState() {
     super.initState();
@@ -80,7 +78,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             style: isOutLine ? BorderStyle.solid : BorderStyle.none),
         borderRadius: BorderRadius.all(Radius.circular(13)),
         color:
-            isOutLine ? Colors.transparent : Theme.of(context).backgroundColor,
+            isOutLine ? Colors.transparent : Theme.of(context).colorScheme.surface,
         boxShadow: <BoxShadow>[
           BoxShadow(
               color: Color(0xfff8f8f8),
@@ -271,8 +269,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
     );
   }
 
-  Widget _sizeWidget(String text,
-      {Color color = LightColor.iconColor, bool isSelected = false}) {
+  Widget _sizeWidget(String text, {bool isSelected = false}) {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -281,7 +278,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             style: !isSelected ? BorderStyle.solid : BorderStyle.none),
         borderRadius: BorderRadius.all(Radius.circular(10)),
         color:
-            isSelected ? LightColor.orange : Theme.of(context).backgroundColor,
+            isSelected ? LightColor.orange : Theme.of(context).colorScheme.surface,
       ),
       child: TitleText(
         text: text,

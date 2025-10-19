@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/src/model/data.dart';
-import 'package:flutter_ecommerce_app/src/model/product.dart';
 import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
 import 'package:flutter_ecommerce_app/src/themes/theme.dart';
-import 'package:flutter_ecommerce_app/src/wigets/BottomNavigationBar/bootom_navigation_bar.dart';
 import 'package:flutter_ecommerce_app/src/wigets/prduct_icon.dart';
 import 'package:flutter_ecommerce_app/src/wigets/product_card.dart';
-import 'package:flutter_ecommerce_app/src/wigets/title_text.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({required Key key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -25,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(13)),
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.surface,
           boxShadow: AppTheme.shadow),
       child: Icon(
         icon,

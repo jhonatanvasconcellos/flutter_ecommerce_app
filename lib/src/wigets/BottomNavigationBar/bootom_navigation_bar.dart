@@ -4,7 +4,7 @@ import 'package:flutter_ecommerce_app/src/wigets/BottomNavigationBar/bottom_curv
 
 class CustomBottomNavigationBar extends StatefulWidget {
   final Function(int) onIconPresedCallback;
-  CustomBottomNavigationBar({Key key, this.onIconPresedCallback}) : super(key: key);
+  CustomBottomNavigationBar({Key? key,required this.onIconPresedCallback}) : super(key: key);
 
   @override
   _CustomBottomNavigationBarState createState() =>
@@ -15,8 +15,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
     with TickerProviderStateMixin {
   int _selectedIndex = 0;
 
-  AnimationController _xController;
-  AnimationController _yController;
+  late AnimationController _xController;
+  late AnimationController _yController;
   @override
   void initState() {
     _xController = AnimationController(
@@ -106,7 +106,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
             begin: Curves.easeInExpo.transform(_yController.value),
             end: inCurve.transform(_yController.value),
           ).transform(_yController.velocity.sign * 0.5 + 0.5),
-          Theme.of(context).backgroundColor),
+          Theme.of(context).colorScheme.surface),
     );
   }
 

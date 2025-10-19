@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_app/src/model/data.dart';
 import 'package:flutter_ecommerce_app/src/pages/home_page.dart';
 import 'package:flutter_ecommerce_app/src/pages/shoping_cart_page.dart';
 import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
 import 'package:flutter_ecommerce_app/src/themes/theme.dart';
 import 'package:flutter_ecommerce_app/src/wigets/BottomNavigationBar/bootom_navigation_bar.dart';
-import 'package:flutter_ecommerce_app/src/wigets/prduct_icon.dart';
-import 'package:flutter_ecommerce_app/src/wigets/product_card.dart';
 import 'package:flutter_ecommerce_app/src/wigets/title_text.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key key, this.title}) : super(key: key);
+  MainPage({required Key key,required  this.title}) : super(key: key);
 
   final String title;
 
@@ -34,7 +31,7 @@ class _MainPageState extends State<MainPage> {
             borderRadius: BorderRadius.all(Radius.circular(13)),
             child: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).backgroundColor,
+                color: Theme.of(context).colorScheme.surface,
                 boxShadow: <BoxShadow>[
                   BoxShadow(
                       color: Color(0xfff8f8f8),
@@ -55,7 +52,7 @@ class _MainPageState extends State<MainPage> {
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(13)),
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.surface,
           boxShadow: AppTheme.shadow),
       child: Icon(
         icon,
@@ -138,10 +135,10 @@ class _MainPageState extends State<MainPage> {
                           switchInCurve: Curves.easeInToLinear,
                           switchOutCurve: Curves.easeOutBack,
                           child:  isHomePageSelected
-                            ? MyHomePage()
+                            ? MyHomePage(key: Key('home_page'), title: widget.title)
                             : Align(
                               alignment: Alignment.topCenter,
-                              child:ShopingCartPage(),
+                              child:ShopingCartPage(key: Key('cart_page'),),
                             )
                         ))
                   ],
